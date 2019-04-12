@@ -1,0 +1,44 @@
+{
+  "name": "oxygen-ordering-system",
+  "version": "1.0.0",
+  "description": "An order management system that aims to have a Responsive, Modern UI that is natural to use.",
+  "main": "oxygen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist-all": "electron-builder -mwl"
+  },
+  "build": {
+    "appId": "nonExistentID",
+    "files": [
+      "oxygen.js",
+      "oxygenHandler.js",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhongDev/Oxygen-Ordering-System.git"
+  },
+  "author": "ZhongDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhongDev/Oxygen-Ordering-System/issues"
+  },
+  "homepage": "https://github.com/ZhongDev/Oxygen-Ordering-System#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ws": "^4.0.0"
+  },
+  "devDependencies": {
+    "builder": "^4.0.0",
+    "electron": "^4.1.4"
+  }
+}
