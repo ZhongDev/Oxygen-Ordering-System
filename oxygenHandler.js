@@ -1,6 +1,6 @@
 class customer {
     static get(req, res){
-        res.send('customer')
+        res.render('pages/customer', {})
     }
     static ws(ws, req){
         ws.on('message', function (msg){
@@ -11,7 +11,7 @@ class customer {
 
 class kitchen {
     static get(req, res){
-        res.send('kitchen')
+        res.render('pages/kitchen', {})
     }
     static ws(ws, req){
         ws.on('message', function (msg){
@@ -22,7 +22,7 @@ class kitchen {
 
 class pos {
     static get(req, res){
-        res.send('pos')
+        res.render('pages/pos', {})
     }
     static ws(ws, req){
         ws.on('message', function (msg){
