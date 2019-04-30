@@ -24,6 +24,10 @@ app.set('view engine', 'ejs')
 app.get('/', handler.customer.get)
 app.ws('/', handler.customer.ws)
 
+// respond to GET and Websockets requests on root
+app.get('/kitchen/', handler.kitchen.get)
+app.ws('/kitchen/', handler.kitchen.ws)
+
 // POS GUI server
 app.get('/pos/', handler.pos.get)
 app.ws('/pos/', handler.pos.ws)
