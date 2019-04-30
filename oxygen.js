@@ -50,7 +50,7 @@ function createWindow() {
 
         // and load the index.html of the app.
         win.loadURL('http://127.0.0.1/pos/')
-        // win.webContents.openDevTools()   // or CMD+OPTION+I
+        // win.webContents.openDevTools()   // or CMD+OPTION+I to open in dev enviroment
         resolve()
     })
 }

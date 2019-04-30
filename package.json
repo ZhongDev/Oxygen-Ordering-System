@@ -15,7 +15,8 @@
     "files": [
       "oxygen.js",
       "oxygenHandler.js",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "views/**/*"
     ],
     "directories": {
       "buildResources": "assets"
