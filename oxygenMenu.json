@@ -1,0 +1,42 @@
+{
+    "categories": {
+        "Entrée": [{
+            "Name": "Edamame",
+            "Description": "Lightly salted soybeans",
+            "Price": 680
+        },{
+            "Name": "Spring Roll",
+            "Description": "Three pieces. Deep fried vegetable spring rolls.",
+            "Price": 780
+        },{
+            "Name": "Agedashi Tofu",
+            "Description": "Crispy fried tofu pieces with sweetened soy sauce.",
+            "Price": 880
+        },{
+            "Name": "Takoyaki",
+            "Description": "Six pieces. Deep fried octopus balls served with Japanese BBQ sauce.",
+            "Price": 780
+        },{
+            "Name": "Panko Prawn",
+            "Description": "Three pieces of breadcrumbed prawn with tartar sauce.",
+            "Price": 880
+        },{
+            "Name": "Panko Calamari Ring",
+            "Description": "Six pieces of breadcrumbed calamari with tartar sauce.",
+            "Price": 980
+        }],
+        "Taisho Salad": [],
+        "Tempura": [],
+        "Sushi": [],
+        "Sashimi": [],
+        "Taisho Roll": [],
+        "A La Carte": [],
+        "Noodles": [],
+        "Donburi": [],
+        "Japanese Curry": [],
+        "Special Bento Box": [],
+        "Dairy Fresh": [],
+        "Dessert": [],
+        "Beverages": []
+    }
+}

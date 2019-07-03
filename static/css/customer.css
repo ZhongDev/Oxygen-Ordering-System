@@ -1,0 +1,129 @@
+html, body{
+    background: #000;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar{
+    height: calc(10vh + 1.325rem); 
+    padding-bottom: 0.25rem !important;
+}
+
+.navbar-brand-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar-brand{
+    margin-left: 1rem;
+    padding-bottom: 0;
+}
+
+.mainselection{
+    height: calc(90vh - 1.075rem); 
+    padding-bottom: 0.5rem;
+}
+
+.item-menu{
+    background: #fff;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 3;
+}
+
+.category-selector{
+    height: 100%;
+    border-left: 1rem;
+    overflow: hidden;
+}
+
+.menu-category{
+    font-family: 'Product Sans';
+    position: relative;
+    height: 6rem;
+    background: #fff;
+    margin: 0 0 0 0;
+    border-radius: 1rem 0 0 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 2s;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.category-text{
+    margin: 0;
+}
+
+.menu-category.selected{
+    z-index: 0;
+}
+
+.dropTop{
+    position: relative;
+    z-index: 1;
+    height: 2rem;
+    margin: 0rem -1rem -1rem -1rem;
+    box-shadow: 0rem -0.5rem 1rem 0rem rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropTop.show{
+    opacity: 1;
+}
+
+.dropBottom{
+    position: relative;
+    z-index: 1;
+    height: 2rem;
+    margin: -1rem -1rem 0 -1rem;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropBottom.show{
+    opacity: 1;
+}
+
+.dropShadow{
+    box-shadow: 0px 0px 1rem 0.5rem rgba(0,0,0,0.3);
+}
+
+.forceScroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 2rem);
+    margin: 0;
+}
+
+.fillHeight{
+    height: 100%;
+}
+
+.autoMargin{
+    margin: auto;
+}
+
+.noSidePadding{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.noLeftPadding{
+    padding-left: 0 !important;
+}
+
+.noRightPadding{
+    padding-right: 0 !important;
+}
+
+.noBottomPadding{
+    padding-bottom: 0 !important;
+}

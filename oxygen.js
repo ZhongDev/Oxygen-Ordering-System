@@ -32,29 +32,32 @@ app.ws('/kitchen/', handler.kitchen.ws)
 app.get('/pos/', handler.pos.get)
 app.ws('/pos/', handler.pos.ws)
 
+app.use('/static/', express.static(path.join(__dirname, 'static')))
+
 // start listening for requests
 app.listen(port, () => {
     console.log(`OxygenOS is listening on port ${port}`)
     electronapp.on('ready', () => {
-        createWindow()
+        createWindow('http://127.0.0.1/pos/', 800, 600)
             .then(()=>{
                 console.log(`Electron window attempting connection to localhost on ${port}`)
+                createWindow('http://127.0.0.1/', 1024, 768) 
             })
     })
 })
 
 // create the electron window and connect to the local server
-function createWindow() {
+function createWindow(url, width, height) {
     return new Promise((resolve, reject) => {
         // Create the browser window.
         win = new BrowserWindow({
-            width: 800,
-            height: 600
+            width,
+            height
         })
 
         // and load the index.html of the app.
-        win.loadURL('http://127.0.0.1/pos/')
-        // win.webContents.openDevTools()   // or CMD+OPTION+I to open in dev enviroment
+        win.loadURL(url)
+        setTimeout(function(){win.webContents.openDevTools()}, 1000)
         resolve()
     })
 }

@@ -2,8 +2,39 @@
 <html lang="en">
 <head>
     <% include ../partials/headmain.ejs%>
+    <link rel="stylesheet" href="/static/css/customer.css">
 </head>
 <body>
-    <h1>Customer</h1>
+    <div class="container-fluid">
+        <nav class="navbar noSidePadding">
+            <div class="col-3 noSidePadding navbar-brand-container">
+                <a class="navbar-brand">
+                    <img src="/static/image/logo.png" alt="Taisho" style="height: 10vh;">
+                </a></div>
+            <div class="col-9 fillHeight noSidePadding">
+                <!-- Add Call Buttons Here -->
+            </div>
+        </nav>
+        <div class="row col-12 noSidePadding autoMargin mainselection">
+            <div class="col-3 noRightPadding category-selector">
+                <div id="top-shadow-ele" class="row dropBottom"></div>
+                <div id="category-selector" class="row forceScroll" onscroll="updateScrollShadow()">
+
+                    <% Object.keys(categories).forEach((category)=>{ %>
+                        <div class="row menu-category">
+                            <h2 class="category-text"><%= category %></h2>
+                        </div>
+                    <% }) %>
+                </div>
+                <div id="bottom-shadow-ele" class="row dropTop"></div>
+            </div>
+            <div class="col-9 noLeftPadding fillHeight">
+                <div class="item-menu fillHeight dropShadow">
+                    <!-- Add Menu Items Here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/customer/customer.js"></script>
 </body>
 </html>
