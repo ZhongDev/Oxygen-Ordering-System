@@ -16,7 +16,8 @@
       "oxygen.js",
       "oxygenHandler.js",
       "node_modules/**/*",
-      "views/**/*"
+      "views/**/*",
+      "menupack/**/*"
     ],
     "directories": {
       "buildResources": "assets"

@@ -30,8 +30,64 @@ function requestMenu(category){
     }))
 }
 
-function renderMenu(categoryObj){
-    
+function renderMenu(categoryArr){
+    console.log(categoryArr)
+    $("#menu-item-block").html("")
+    categoryArr.forEach(function (item, index) {
+
+        //recreate every node
+        var itemwrapper = document.createElement('div')
+        itemwrapper.setAttribute("class", "menu-item dropShadow")
+
+        var image = document.createElement('img')
+        image.setAttribute("class","menu-item-img")
+        image.setAttribute("src","/menu-static/" + item.Img)
+        
+        var bottomrow = document.createElement('div')
+        bottomrow.setAttribute("class", "row noSideMargin")
+
+        var infobox = document.createElement('div')
+        infobox.setAttribute("class", "menu-item-infobox col-8")
+
+        var titlerow = document.createElement('div')
+        titlerow.setAttribute("class", "row noSideMargin")
+        var title = document.createElement('span')
+        title.setAttribute("class", "menu-item-name")
+        var titletext = document.createTextNode(item.Name);
+
+        var pricerow = document.createElement('div')
+        pricerow.setAttribute("class", "row noSideMargin")
+        var price = document.createElement('span')
+        price.setAttribute("class", "menu-item-price")
+        var pricetext = document.createTextNode("$" + (item.Price/100).toFixed(2));
+
+        var addbutton = document.createElement('div')
+        addbutton.setAttribute("class", "add-button col-4 noSidePadding")
+        addbutton.setAttribute("onclick", "orderPopup(" + index + ")")
+
+        var addbuttonsvg = document.createElement('img')
+        addbuttonsvg.setAttribute("class", "add-button-icon")
+        addbuttonsvg.setAttribute("src", "/static/image/add-to-order.svg")
+
+        //append each node in heirachial order
+        price.append(pricetext)
+        pricerow.append(price)
+        title.append(titletext)
+        titlerow.append(title)
+
+        infobox.append(titlerow)
+        infobox.append(pricerow)
+        addbutton.append(addbuttonsvg)
+        
+        bottomrow.append(infobox)
+        bottomrow.append(addbutton)
+
+        itemwrapper.append(image)
+        itemwrapper.append(bottomrow)
+        
+
+        $("#menu-item-block").append(itemwrapper)
+    });
 }
 
 // connect to server via WebSockets

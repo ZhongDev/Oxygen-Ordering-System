@@ -82,7 +82,7 @@ function assignTableId(ws, Address){
 
 //return menu Object
 function returnMenuItems(ws, category){
-    returnObj = MenuObject.categories.category;
+    returnObj = MenuObject.categories[category];
     ws.send(JSON.stringify({
         "item": "menuitems",
         "value": returnObj,
