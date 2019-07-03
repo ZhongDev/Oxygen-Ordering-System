@@ -22,11 +22,38 @@ html, body{
     padding-top: 0rem;
 }
 
+#table-id{
+    display: inline-block;
+    margin-left: .5rem;
+}
+
+.top-bar{
+    margin-right: 15px;
+    margin-left: 0;
+}
+
+.table-text-container{
+    height: calc(10vh + 0.575rem);
+    color: #fff;
+}
+
+.table-text-inner{
+    display: inline-block;
+}
+
+.table-text{
+    line-height: 5vh;
+    font-size: 5vh;
+    font-family: 'Product Sans';
+    margin-top: calc(2.5vh + 0.375rem);
+    margin-bottom: calc(2.5vh + 0.2rem);
+}
+
 .menu-item{
     display: inline-block;
     border-radius: 1rem;
     height: 11rem;
-    width: calc((100% - 7rem) / 3);
+    width: calc((100% - 4rem) / 2);
     margin: 1rem;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -55,6 +82,11 @@ html, body{
 .menu-item-price{
     font-size: 1rem;
     line-height: 1rem;
+}
+
+.menu-item-bottom-row{
+    margin-left: -1px;
+    margin-right: -1px;
 }
 
 .add-button{

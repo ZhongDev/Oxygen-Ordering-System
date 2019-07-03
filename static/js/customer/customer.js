@@ -6,12 +6,15 @@ var intersectObj = {
     topintersect: -1,
     bottomintersect: -1
 }
+var currentArr = [];
+var currentCategory = '';
 
 // import jquery libraries
 window.$ = window.jQuery = require('jquery');
 
 // wait for document to be safe to modify
 $(window).on('load', function() {
+    //setup
     categorietabs = $("#category-selector").children();
     categorietabs[0].classList.add('selected');
     categorietabs[0].setAttribute("id", "firstcategory")
@@ -23,6 +26,7 @@ $(window).on('load', function() {
 
 function requestMenu(category){
     $('#menu-title-bar-text').text(category)
+    currentCategory = category;
     ws.send(JSON.stringify({
         "request": "get",
         "item": "menuitems",
@@ -32,6 +36,8 @@ function requestMenu(category){
 
 function renderMenu(categoryArr){
     console.log(categoryArr)
+    currentArr = categoryArr;
+
     $("#menu-item-block").html("")
     categoryArr.forEach(function (item, index) {
 
@@ -44,10 +50,10 @@ function renderMenu(categoryArr){
         image.setAttribute("src","/menu-static/" + item.Img)
         
         var bottomrow = document.createElement('div')
-        bottomrow.setAttribute("class", "row noSideMargin")
+        bottomrow.setAttribute("class", "row menu-item-bottom-row")
 
         var infobox = document.createElement('div')
-        infobox.setAttribute("class", "menu-item-infobox col-8")
+        infobox.setAttribute("class", "menu-item-infobox col-9")
 
         var titlerow = document.createElement('div')
         titlerow.setAttribute("class", "row noSideMargin")
@@ -62,7 +68,7 @@ function renderMenu(categoryArr){
         var pricetext = document.createTextNode("$" + (item.Price/100).toFixed(2));
 
         var addbutton = document.createElement('div')
-        addbutton.setAttribute("class", "add-button col-4 noSidePadding")
+        addbutton.setAttribute("class", "add-button col-3 noSidePadding")
         addbutton.setAttribute("onclick", "orderPopup(" + index + ")")
 
         var addbuttonsvg = document.createElement('img')
@@ -107,6 +113,7 @@ function setupWebSockets(){
         switch(receivedObj.item){
             case "tableid":
                 tableid = receivedObj.value
+                $('#table-id').text(tableid)
             break
             case "menuitems":
                 renderMenu(receivedObj.value)
