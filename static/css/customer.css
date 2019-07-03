@@ -4,6 +4,81 @@ html, body{
     overflow: hidden;
 }
 
+#menu-title-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#menu-title-bar-text{
+    margin-top: 1rem;
+}
+
+#menu-items-container{
+    height: calc(100% - 2.75rem);
+    padding: 0.5rem;
+    padding-bottom: 1.25rem;
+    padding-top: 0rem;
+}
+
+.menu-item{
+    display: inline-block;
+    border-radius: 1rem;
+    height: 11rem;
+    width: calc((100% - 7rem) / 3);
+    margin: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.menu-item-img{
+    width: 100%;
+    height: calc(100% - 4rem);
+    object-fit: cover;
+    object-position: center;
+}
+
+.menu-item-infobox{
+    height: 4rem;
+    width: 100%;
+    font-family: 'Product Sans';
+    padding: 0.75rem;
+}
+
+.menu-item-name{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.menu-item-price{
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.add-button{
+    height: 4rem;
+    background-color:#00c853;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.add-button-icon{
+    height: 75%;
+    width: 75%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.menu-item-block{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
 .navbar{
     height: calc(10vh + 1.325rem); 
     padding-bottom: 0.25rem !important;
@@ -54,6 +129,7 @@ html, body{
     align-items: center;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 
 .category-text{
@@ -126,4 +202,30 @@ html, body{
 
 .noBottomPadding{
     padding-bottom: 0 !important;
+}
+
+.noBottomMargin{
+    margin-bottom: 0 !important;
+}
+
+.noSideMargin{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.customscroll::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.customscroll::-webkit-scrollbar{
+	width: 10px;
+	background-color: #fff;
+}
+
+.customscroll::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #999;
 }

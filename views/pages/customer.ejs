@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <% include ../partials/headmain.ejs%>
+    <script>var port = <%= port %></script>
     <link rel="stylesheet" href="/static/css/customer.css">
 </head>
 <body>
@@ -12,25 +13,62 @@
                     <img src="/static/image/logo.png" alt="Taisho" style="height: 10vh;">
                 </a></div>
             <div class="col-9 fillHeight noSidePadding">
+                <!--  -->
                 <!-- Add Call Buttons Here -->
+                <!--  -->
             </div>
         </nav>
         <div class="row col-12 noSidePadding autoMargin mainselection">
             <div class="col-3 noRightPadding category-selector">
                 <div id="top-shadow-ele" class="row dropBottom"></div>
-                <div id="category-selector" class="row forceScroll" onscroll="updateScrollShadow()">
+                <div id="category-selector" class="row forceScroll customscroll" onscroll="updateScrollShadow()">
 
-                    <% Object.keys(categories).forEach((category)=>{ %>
-                        <div class="row menu-category">
+                    <% var categories = MenuObject.categories;
+                    Object.keys(categories).forEach((category)=>{ %>
+                        <div class="row menu-category" onclick='requestMenu("<%= category %>")' value='<%= category %>'>
                             <h2 class="category-text"><%= category %></h2>
                         </div>
                     <% }) %>
+
                 </div>
                 <div id="bottom-shadow-ele" class="row dropTop"></div>
             </div>
             <div class="col-9 noLeftPadding fillHeight">
                 <div class="item-menu fillHeight dropShadow">
-                    <!-- Add Menu Items Here -->
+                    <div id="menu-title-bar" class="row noSideMargin">
+                        <h3 id="menu-title-bar-text"></h3>
+                    </div>
+                    <div class="row noSideMargin" id="menu-items-container">
+                        <div class="menu-item-block customscroll">
+                            <div class="menu-item dropShadow">
+                                <img class="menu-item-img" src="/menu-static/edamame.jpg">
+                                <div class="row noSideMargin">
+                                    <div class="menu-item-infobox col-8">
+                                    <div class="row noSideMargin">
+                                        <span class="menu-item-name">Edamame</span>
+                                    </div>
+                                    <div class="row noSideMargin">
+                                        <span class="menu-item-price">$6.80</span>
+                                    </div>
+                                    </div>
+                                    <div class="add-button col-4 noSidePadding" onclick="orderPopup(0)">
+                                        <img class="add-button-icon" src="/static/image/add-to-order.svg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                            <div class="menu-item dropShadow"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

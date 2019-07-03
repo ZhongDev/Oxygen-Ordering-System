@@ -32,7 +32,9 @@ app.ws('/kitchen/', handler.kitchen.ws)
 app.get('/pos/', handler.pos.get)
 app.ws('/pos/', handler.pos.ws)
 
+// Serve static files
 app.use('/static/', express.static(path.join(__dirname, 'static')))
+app.use('/menu-static/', express.static(path.join(__dirname, 'menupack/menu-static')))
 
 // start listening for requests
 app.listen(port, () => {

@@ -3,7 +3,8 @@
         "Entrée": [{
             "Name": "Edamame",
             "Description": "Lightly salted soybeans",
-            "Price": 680
+            "Price": 680,
+            "Img": "edamame.jpg"
         },{
             "Name": "Spring Roll",
             "Description": "Three pieces. Deep fried vegetable spring rolls.",
