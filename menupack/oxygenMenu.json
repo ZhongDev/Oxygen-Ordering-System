@@ -8,29 +8,106 @@
         },{
             "Name": "Spring Roll",
             "Description": "Three pieces. Deep fried vegetable spring rolls.",
-            "Price": 780
+            "Price": 780,
+            "Img": "springroll.jpg"
         },{
             "Name": "Agedashi Tofu",
             "Description": "Crispy fried tofu pieces with sweetened soy sauce.",
-            "Price": 880
+            "Price": 880,
+            "Img": "agedashi.jpg"
         },{
             "Name": "Takoyaki",
             "Description": "Six pieces. Deep fried octopus balls served with Japanese BBQ sauce.",
-            "Price": 780
+            "Price": 780,
+            "Img": "takoyaki.jpg"
         },{
-            "Name": "Panko Prawn",
-            "Description": "Three pieces of breadcrumbed prawn with tartar sauce.",
-            "Price": 880
+            "Name": "Gyoza",
+            "Description": "Five pieces. Japanese dumpling with pork and vegetables.",
+            "Price": 980,
+            "Img": "gyoza.jpg"
         },{
-            "Name": "Panko Calamari Ring",
-            "Description": "Six pieces of breadcrumbed calamari with tartar sauce.",
-            "Price": 980
+            "Name": "Chicken Karaage",
+            "Description": "Six pieces. Japanese style deep fried chicken bites.",
+            "Price": 980,
+            "Img": "karaage.jpg"
+        },{
+            "Name": "Chicken Katsu",
+            "Description": "Served with Japanese mayo and katsu sauce.",
+            "Price": 1080,
+            "Img": "katsu.jpg"
+        },{
+            "Name": "Wagyu Beef Tataki",
+            "Description": "Lightly seared wagyu strips served with citrus ponzu sauce.",
+            "Price": 1580,
+            "Img": "beeftataki.jpg"
+        },{
+            "Name": "Salmon Tataki",
+            "Description": "Lightly seared salmon strips with wasabi and citrus sauce.",
+            "Price": 1580,
+            "Img": "salmontataki.jpg"
+        },{
+            "Name": "Tuna Tataki",
+            "Description": "Lightly seared tuna strips with citrus ponzu sauce.",
+            "Price": 1680,
+            "Img": "tunatataki.jpg"
         }],
-        "Taisho Salad": [],
-        "Tempura": [],
-        "Sushi": [],
-        "Sashimi": [],
-        "Taisho Roll": [],
+        "Tempura": [{
+            "Name": "Soft Shell Crab Tempura",
+            "Description": "Two pieces. Deep fried soft shell crab.",
+            "Price": 880,
+            "Img": "softshelltemp.jpg"
+        },{
+            "Name": "Vegetable Tempura",
+            "Description": "Six pieces. Deep fried battered seasonal vegetables.",
+            "Price": 1180,
+            "Img": "vegetempura.jpg"
+        },{
+            "Name": "Prawn Tempura",
+            "Description": "Four pieces. Japanese battered and deep fried prawns.",
+            "Price": 1380,
+            "Img": "prawntemp.jpg"
+        }],
+        "Taisho Roll": [{
+            "Name": "California Roll",
+            "Description": "Salmon, kani salad, avocado, cucumber, tobiko and mayo sauce.",
+            "Price": 1980,
+            "Img": "caliroll.jpg"
+        },{
+            "Name": "Chicken Katsu Roll",
+            "Description": "Chicken schnitzel with avocado and mayo sauce.",
+            "Price": 1980,
+            "Img": "katsuroll.jpg"
+        },{
+            "Name": "Salmon and Avocado Roll",
+            "Description": "Fresh salmon and avocado with mayo sauce.",
+            "Price": 1980,
+            "Img": "samoavoroll.jpg"
+        },{
+            "Name": "Cooked Tuna Avocado Roll",
+            "Description": "Cooked tuna with mayo sauce.",
+            "Price": 1980,
+            "Img": "cookedtunaroll.jpg"
+        },{
+            "Name": "Prawn Crunch Roll",
+            "Description": "Prawn tempura, tonkatsu, avocado, cucumber and tobiko.",
+            "Price": 1980,
+            "Img": "prawncrunchroll.jpg"
+        },{
+            "Name": "Spider Roll",
+            "Description": "Soft shell crab, cucumber, avocado and tobiko with mayo sauce.",
+            "Price": 2280,
+            "Img": "spiderroll.jpg"
+        },{
+            "Name": "Dragon Roll",
+            "Description": "Eel, tamago, kani salad, cucumber and avocado.",
+            "Price": 2380,
+            "Img": "dragonroll.jpg"
+        },{
+            "Name": "Spicy Fresh Tuna Roll",
+            "Description": "Fresh tuna, tamago, cucumber, avocado with chef's special spicy sauce.",
+            "Price": 2480,
+            "Img": "spicytunaroll.jpg"
+        }],
         "A La Carte": [],
         "Noodles": [],
         "Donburi": [],
