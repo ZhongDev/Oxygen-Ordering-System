@@ -17,7 +17,7 @@ html, body{
     display: block;
 }
 
-, #overlay-content-orders.show{
+#overlay-content-orders.show{
     display: block;
 }
 
