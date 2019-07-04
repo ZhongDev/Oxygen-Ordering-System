@@ -112,98 +112,88 @@
             "Name": "Miso Ramen",
             "Description": "Miso taste donkocheu noodle soup. Served with sliced pork, soya eggs, fish cake and Japanese vegetables.",
             "Price": 1380,
-            "Img": ""
+            "Img": "misoramen.jpg"
         },{
             "Name": "Spicy Ramen",
             "Description": "Homemade spicy sauce donkocheu noodle soup. Served with sliced pork.",
             "Price": 1380,
-            "Img": ""
+            "Img": "spicyramen.jpg"
         },{
             "Name": "Wagyu Ramen",
-            "Description": "teriyaki wagyu beef ramen.",
+            "Description": "Teriyaki Wagyu beef ramen.",
             "Price": 1580,
-            "Img": ""
+            "Img": "wagyuramen.jpg"
         },{
             "Name": "Yaki Udon",
-            "Description": "Stir fried udon noodle with chicken, vegetable and prawns.",
+            "Description": "Stir fried udon noodle with beef, vegetable and prawns.",
             "Price": 1580,
-            "Img": ""
+            "Img": "yakiudon.jpg"
         },{
             "Name": "Taisho Donkostu Ramen",
             "Description": "Special traditional creamy white donkotsu pork noodle soup with deluxe toppings.",
             "Price": 1680,
-            "Img": ""
+            "Img": "whitetonkotsu.jpg"
         },{
             "Name": "Seafood Udon",
             "Description": "Assorted seafood, mussels, prawn and octopus on udon.",
             "Price": 1680,
-            "Img": ""
+            "Img": "seafoodudon.jpg"
         },{
             "Name": "Plain Udon",
             "Description": "Seaweed, shallot, abura-age, naruto fish cake and sesame.",
             "Price": 1180,
-            "Img": ""
+            "Img": "plainudon.png"
         },{
             "Name": "Tempura Udon",
             "Description": "Four pieces tempura and udon.",
             "Price": 1380,
-            "Img": ""
+            "Img": "tempuraudon.jpg"
         },{
             "Name": "Chicken Katsu Udon",
             "Description": "Breadcrumbed chicken with udon.",
             "Price": 1380,
-            "Img": ""
+            "Img": "katsuudon.jpg"
         },{
             "Name": "Chicken Karaage Udon",
             "Description": "Breadcrumbled with udon.",
             "Price": 1380,
-            "Img": ""
+            "Img": "karaageudon.jpg"
         }],
         "Donburi": [{
             "Name": "Teriyaki Chicken Don",
             "Description": "Stir fried chicken with teriyaki sauce and seasonal vegetable on steam rice.",
             "Price": 1680,
-            "Img": ""
+            "Img": "teriyakichickendon.jpg"
         },{
             "Name": "Teriyaki Salmon Don",
             "Description": "Stir fried salmon with teriyaki sauce and seasonal vegetables on steam rice.",
             "Price": 1880,
-            "Img": ""
+            "Img": "teriyakisalmondon.jpg"
         },{
-            "Name": "Chicken Katsu Mayo Don",
+            "Name": "Chicken Katsu Don",
             "Description": "Deep fried crumbed chicken. Served with homemade donburi sauce on steam rice.",
             "Price": 1680,
-            "Img": ""
-        },{
-            "Name": "Panko Prawn Don",
-            "Description": "Deep fried crumbed prawn served with homemade donburi egg sauce on steam rice.",
-            "Price": 1680,
-            "Img": ""
+            "Img": "katsudon.jpeg"
         },{
             "Name": "Chirashi Don (Assorted Sashimi)",
             "Description": "Fresh salmon, kingfish, tuna, egg, cucumber with spicy sauce.",
             "Price": 1680,
-            "Img": ""
-        },{
-            "Name": "Pork Chashu Don",
-            "Description": "Six pieces pork chashu slices with teriyaki and mayo sauce.",
-            "Price": 1680,
-            "Img": ""
+            "Img": "chirashidon.jpg"
         },{
             "Name": "Chicken Karaage Don",
             "Description": "Deep fried Japanese style chicken with mayo and teriyaki sauce.",
             "Price": 1680,
-            "Img": ""
+            "Img": "karaagedon.jpg"
         },{
             "Name": "Unagi Don",
             "Description": "grilled eel with teriyaki sauce on steam rice.",
             "Price": 2180,
-            "Img": ""
+            "Img": "unagidon.jpg"
         },{
             "Name": "Wagyu Beef Don (Gyudon)",
             "Description": "Grilled wagyu beef slices with special sauce on steam rice.",
             "Price": 1780,
-            "Img": ""
+            "Img": "gyudon.jpg"
         }],
         "Japanese Curry": [{
             "Name": "Chicken Katsu Curry",
