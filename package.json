@@ -1,5 +1,5 @@
 {
-  "name": "OxygenOS",
+  "name": "oxygenui",
   "version": "1.0.0",
   "description": "An order management system that aims to have a Responsive, Modern UI that is natural to use.",
   "main": "oxygen.js",
