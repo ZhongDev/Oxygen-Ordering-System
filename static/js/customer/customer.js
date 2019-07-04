@@ -263,7 +263,7 @@ function generateOrderPopup(itemIndex){
     pricerow.setAttribute("class", "row noSideMargin")
     var price = document.createElement('span')
     price.setAttribute("class", "order-item-price")
-    var pricetext = document.createTextNode("$" + (item.Price/100).toFixed(2) + "/eax");
+    var pricetext = document.createTextNode("$" + (item.Price/100).toFixed(2) + "/ea");
 
     var descrow = document.createElement('div')
     descrow.setAttribute("class", "row noSideMargin")
