@@ -22,30 +22,6 @@ class customer {
     }
 }
 
-// class for responding to kitchen GUI (currently unused)
-class kitchen {
-    static get(req, res){
-        res.render('pages/kitchen', {"port": port})
-    }
-    static ws(ws, req){
-        ws.on('message', function (msg){
-            handleRequest(ws, req, msg)
-        })
-    }
-}
-
-// class for responding to kitchen GUI (currently unused)
-class pos {
-    static get(req, res){
-        res.render('pages/pos', {"port": port})
-    }
-    static ws(ws, req){
-        ws.on('message', function (msg){
-            handleRequest(ws, req, msg)
-        })
-    }
-}
-
 // assign table on connection handshake
 function assignTableId(ws, Address){
     var newID = tableidArr.length
@@ -127,4 +103,4 @@ function handleRequest(ws, req, msg){
 }
 
 //export handlers to main script
-module.exports = {customer, kitchen, pos}
+module.exports = {customer}

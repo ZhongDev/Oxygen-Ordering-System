@@ -24,19 +24,11 @@ app.set('view engine', 'ejs')
 app.get('/', handler.customer.get)
 app.ws('/', handler.customer.ws)
 
-// respond to GET and Websockets requests on /Kitchen (currently unused)
-app.get('/kitchen/', handler.kitchen.get)
-app.ws('/kitchen/', handler.kitchen.ws)
-
-// POS GUI server (currently unused)
-app.get('/pos/', handler.pos.get)
-app.ws('/pos/', handler.pos.ws)
-
 // Serve static files
 app.use('/static/', express.static(path.join(__dirname, 'static')))
 app.use('/menu-static/', express.static(path.join(__dirname, 'menu-static')))
 
-// start listening for requests
+// start listening for window connection
 app.listen(port, () => {
     console.log(`OxygenOS is listening on port ${port}`)
     electronapp.on('ready', () => {
