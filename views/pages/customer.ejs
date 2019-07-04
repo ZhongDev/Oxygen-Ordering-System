@@ -3,70 +3,82 @@
 
 <head>
     <% include ../partials/headmain.ejs%>
+    <!-- import page stylesheets -->
     <link rel="stylesheet" href="/static/css/customer.css">
 </head>
 
 <body>
+    <!-- Ordered Items Overlay -->
     <div id="overlay-content-orders">
         <div class="order-menu dropShadow">
             <div class="row order-item-bottom-row">
+
+                <!-- Title -->
                 <div class="order-item-infobox orders col-11">
                     <div class="row noSideMargin">
-                        <span class="order-item-name">Orders</span>
+                        <span class="order-item-name">Ordered Items</span>
                     </div>
                 </div>
+
+                <!-- Close button -->
                 <div class="col-1 noSideMargin fillHeight">
                     <div style="float: right; height: 3rem; width: 3rem;" class="add-button-order red noSidePadding" onclick="hideOverlay()">
                         <img class="add-button-icon" src="/static/image/close.svg">
                     </div>
                 </div>
             </div>
+
             <div class="row order-table-container noSideMargin">
                 <div class="tablecontain fillHeight fillWidth forceScroll customscroll">
+
+                    <!-- Table Stylesheets -->
                     <style type="text/css">
                     .tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9;width:100%;}
                     .tg td{font-family:'Product Sans', sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
                     .tg th{font-family:'Product Sans', sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
                     .tg .tg-0lax{text-align:left;vertical-align:top}
                     </style>
+
+                    <!-- Table For Items -->
                     <table id="order-table" class="tg">
-                        <tr>
-                        <th class="tg-0lax">Order #</th>
-                        <th class="tg-0lax">Item</th>
-                        <th class="tg-0lax">Cost/ea</th>
-                        <th class="tg-0lax">Quantity</th>
-                        <th class="tg-0lax">Total</th>
-                        </tr>
-                        <tr>
-                        <td class="tg-0lax"></td>
-                        <td class="tg-0lax"></td>
-                        <td class="tg-0lax"></td>
-                        <td class="tg-0lax"></td>
-                        <td class="tg-0lax"></td>
-                        </tr>
                     </table>
                 </div>
             </div>
+
+            <!-- Total cost -->
             <div class="row order-table-total noSideMargin">
                 <span class="order-table-total-text" id="order-table-total-text">Total:</span>
             </div>
         </div>
     </div>
+
+    <!-- Ordering Overlay -->
     <div id="overlay-content"></div>
+
+    <!-- Dimming Overlay -->
     <div id="overlay" onclick="hideOverlay()"></div>
+
+    <!-- Top Bar -->
     <div class="container-fluid">
         <nav class="navbar noSidePadding">
             <div class="col-3 noSidePadding navbar-brand-container">
+
+                <!-- Company Logo -->
                 <a class="navbar-brand">
                     <img src="/static/image/logo.png" alt="Taisho" style="height: 10vh;">
                 </a></div>
+
             <div class="col-9 fillHeight noSidePadding">
                 <div class="row fillHeight top-bar">
                     <div class="col-9 fillHeight">
+
+                        <!-- Show Ordered Items Button -->
                         <div class="bill-btn center-content" onclick="getOrders()">
                             <span class="bill-text">Orders</span>
                         </div>
                     </div>
+
+                    <!-- Table Number -->
                     <div class="table-text-container col-3 fillHeight">
                         <h2 class="table-text"><span class="table-text-inner">Table:</span><span id="table-id"></span>
                         </h2>
@@ -74,21 +86,29 @@
                 </div>
             </div>
         </nav>
+
         <div class="row col-12 noSidePadding autoMargin mainselection">
             <div class="col-3 noRightPadding category-selector">
+                <!-- Shadow above catergory selector -->
                 <div id="top-shadow-ele" class="row dropBottom"></div>
+
+                <!-- Left hand side catergory selector -->
                 <div id="category-selector" class="row forceScroll customscroll" onscroll="updateScrollShadow()">
 
+                    <!-- Dynamically generate from oxygenMenu.json database file -->
                     <% var categories = MenuObject.categories;
                     Object.keys(categories).forEach((category)=>{ %>
                     <div class="row menu-category" onclick='requestMenu("<%= category %>")' id="<%= category.split(' ').join('-') %>" value='<%= category %>'>
                         <h2 class="category-text"><%= category %></h2>
                     </div>
                     <% }) %>
-
                 </div>
+                
+                <!-- Shadow below catergory selector -->
                 <div id="bottom-shadow-ele" class="row dropTop"></div>
             </div>
+
+            <!-- Item display block -->
             <div class="col-9 noLeftPadding fillHeight">
                 <div class="item-menu fillHeight dropShadow">
                     <div id="menu-title-bar" class="row noSideMargin">
@@ -96,13 +116,17 @@
                     </div>
                     <div class="row noSideMargin" id="menu-items-container">
                         <div class="menu-item-block customscroll" id="menu-item-block">
-
+                            <!-- Recieved items generated into here -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/customer/elementAnimator.js"></script>
+    <script src="/static/js/customer/elementGenerator.js"></script>
     <script src="/static/js/customer/customer.js"></script>
 </body>
 

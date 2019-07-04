@@ -24,34 +24,27 @@ app.set('view engine', 'ejs')
 app.get('/', handler.customer.get)
 app.ws('/', handler.customer.ws)
 
-// respond to GET and Websockets requests on /Kitchen (currently unused)
-app.get('/kitchen/', handler.kitchen.get)
-app.ws('/kitchen/', handler.kitchen.ws)
-
-// POS GUI server (currently unused)
-app.get('/pos/', handler.pos.get)
-app.ws('/pos/', handler.pos.ws)
-
 // Serve static files
 app.use('/static/', express.static(path.join(__dirname, 'static')))
 app.use('/menu-static/', express.static(path.join(__dirname, 'menu-static')))
 
-// start listening for requests
+// start listening for window connection
 app.listen(port, () => {
     console.log(`OxygenOS is listening on port ${port}`)
     electronapp.on('ready', () => {
         console.log(`Electron window attempting connection to localhost on ${port}`)
-        createWindow('http://127.0.0.1/', 1024, 768) 
+        createWindow('http://127.0.0.1/', 1024, 720, false) 
     })
 })
 
 // create the electron window and connect to the local server
-function createWindow(url, width, height) {
+function createWindow(url, width, height, resizable) {
     return new Promise((resolve, reject) => {
         // Create the browser window.
         win = new BrowserWindow({
             width,
-            height
+            height,
+            resizable
         })
 
         // and load the index.html of the app.
