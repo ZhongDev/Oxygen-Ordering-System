@@ -52,6 +52,9 @@ function requestMenu(category){
 
 function orderIncrement(){
     currentqty += 1;
+    if(currentqty > 10){
+        currentqty = 10;
+    }
     $('#qty-txt').text(currentqty)
 }
 

@@ -108,13 +108,120 @@
             "Price": 2480,
             "Img": "spicytunaroll.jpg"
         }],
-        "A La Carte": [],
         "Noodles": [],
-        "Donburi": [],
-        "Japanese Curry": [],
-        "Special Bento Box": [],
-        "Dairy Fresh": [],
-        "Dessert": [],
-        "Beverages": []
+        "Donburi": [{
+            "Name": "",
+            "Description": "",
+            "Price": 0,
+            "Img": ""
+        },{
+            "Name": "",
+            "Description": "",
+            "Price": 0,
+            "Img": ""
+        },{
+            "Name": "",
+            "Description": "",
+            "Price": 0,
+            "Img": ""
+        }],
+        "Japanese Curry": [{
+            "Name": "Chicken Katsu Curry",
+            "Description": "Served with rive, salad and vegetable pickles",
+            "Price": 1580,
+            "Img": "chickenkatsucurry.jpg"
+        },{
+            "Name": "Chicken Karaage Curry",
+            "Description": "Served with rive, salad and vegetable pickles",
+            "Price": 1580,
+            "Img": "chickenkaraagecurry.jpg"
+        },{
+            "Name": "Panko Prawn Curry",
+            "Description": "Served with rive, salad and vegetable pickles",
+            "Price": 1680,
+            "Img": "pankoprawncurry.jpeg"
+        }],
+        "Dessert": [{
+            "Name": "Green Tea Ice Cream",
+            "Description": "2 Scoop Green Tea Flavoured Ice Cream",
+            "Price": 580,
+            "Img": "greenteaic.jpg"
+        },{
+            "Name": "Black Sesame Ice Cream",
+            "Description": "2 Scoop Black Sesame Flavoured Ice Cream",
+            "Price": 580,
+            "Img": "blacksesameic.jpg"
+        },{
+            "Name": "Vanilla Ice Cream",
+            "Description": "2 Scoop Vanilla Flavoured Ice Cream",
+            "Price": 580,
+            "Img": "vanillaic.jpg"
+        },{
+            "Name": "Green Tea Daifuku",
+            "Description": "2 Mochi Balls stuffed with Green Tea filling",
+            "Price": 780,
+            "Img": "greenteadfk.jpg"
+        },{
+            "Name": "Black Sesame Daifuku",
+            "Description": "2 Mochi Balls stuffed with Black Sesame filling",
+            "Price": 780,
+            "Img": "blacksesamedfk.jpg"
+        }],
+        "Beverages": [{
+            "Name": "Coca-Cola (375ml)",
+            "Description": "A Can of Coca-Cola",
+            "Price": 400,
+            "Img": "cola.jpg"
+        },{
+            "Name": "Coca-Cola Zero (375ml)",
+            "Description": "A Can of Coca-Cola No Sugar",
+            "Price": 400,
+            "Img": "colazero.jpg"
+        },{
+            "Name": "Sprite (375ml)",
+            "Description": "A Can of Sprite",
+            "Price": 400,
+            "Img": "sprite.jpg"
+        },{
+            "Name": "Ramune",
+            "Description": "Japanese Fizzy Lemondade",
+            "Price": 400,
+            "Img": "ramune.jpg"
+        },{
+            "Name": "Calpis (375ml)",
+            "Description": "A can of Calpis",
+            "Price": 400,
+            "Img": "calpis.jpg"
+        },{
+            "Name": "Orange Juice",
+            "Description": "Cup of freshly squeezed Orange Juice",
+            "Price": 400,
+            "Img": "oj.jpg"
+        },{
+            "Name": "Apple Juice",
+            "Description": "Cup of freshly squeezed Apple Juice",
+            "Price": 400,
+            "Img": "aj.jpg"
+        },{
+            "Name": "Sparkling Water (600ml)",
+            "Description": "Bottle of Carbonated Water",
+            "Price": 350,
+            "Img": "sparklewater.jpg"
+        },{
+            "Name": "Hot Green Tea",
+            "Description": "Traditional Japanese Green Tea",
+            "Price": 250,
+            "Img": "greentea.jpg"
+        },{
+            "Name": "Water",
+            "Description": "A Cup of Chilled Water.",
+            "Price": 0,
+            "Img": "water.jpeg"
+        },{
+            "Name": "Water (Jug)",
+            "Description": "A Jug of Chilled Water.",
+            "Price": 0,
+            "Img": "jugwater.jpg"
+        }]
     }
 }
