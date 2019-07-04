@@ -40,6 +40,7 @@ function requestMenu(category){
     setTimeout(function(){
         console.log('#' + category.split(" ").join("-"))
         $('#' + category.split(" ").join("-")).addClass('selected')
+        checkintersection()
     },100)
     $('#menu-title-bar-text').text(category)
     currentCategory = category;
@@ -206,4 +207,21 @@ function updateScrollShadow(){
     //save current state for future comparison
     intersectObj.topintersect = topintersect
     intersectObj.bottomintersect = bottomintersect
+}
+
+// checks if category tab is off screen and scrolls to make sure it is on screen
+function checkintersection(){
+    var y = $('#category-selector').scrollTop();  //your current y position on selector element
+    var selectedrect = $('.menu-category.selected')[0].getBoundingClientRect();
+    var topshadowrect = document.getElementById("top-shadow-ele").getBoundingClientRect();
+    var bottomshadowrect = document.getElementById("bottom-shadow-ele").getBoundingClientRect();
+
+    if (selectedrect.top < topshadowrect.bottom){
+        let offset = y - (topshadowrect.bottom - selectedrect.top);
+        $('#category-selector').animate({ scrollTop: offset }, 400);
+    }
+    if (selectedrect.bottom > bottomshadowrect.top){
+        let offset = y - (bottomshadowrect.top - selectedrect.bottom);
+        $('#category-selector').animate({ scrollTop: offset }, 400);
+    }
 }

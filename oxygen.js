@@ -33,7 +33,7 @@ app.listen(port, () => {
     console.log(`OxygenOS is listening on port ${port}`)
     electronapp.on('ready', () => {
         console.log(`Electron window attempting connection to localhost on ${port}`)
-        createWindow('http://127.0.0.1/', 1024, 768, false) 
+        createWindow('http://127.0.0.1/', 1024, 720, false) 
     })
 })
 
