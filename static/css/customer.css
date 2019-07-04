@@ -4,7 +4,7 @@ html, body{
     overflow: hidden;
 }
 
-#overlay-content{
+#overlay-content, #overlay-content-orders{
     display: none;
     position: absolute;
     margin: 5rem;
@@ -14,6 +14,10 @@ html, body{
 }
 
 #overlay-content.show{
+    display: block;
+}
+
+, #overlay-content-orders.show{
     display: block;
 }
 
@@ -61,6 +65,66 @@ html, body{
     text-align: center;
 }
 
+#confirmation-infobox{
+    opacity: 0;
+}
+
+.bill-btn{
+    float: right;
+    font-family: 'Product Sans';
+    border-radius: 1rem;
+    margin: calc(1vh + 0.287rem);
+    height: 8vh;
+    width: 16vh;
+    background: #4dd0e1;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+}
+
+.bill-btn:hover{
+    background: #18ffff;
+}
+
+.confirm-container{
+    height: 4.25rem;
+}
+
+.confirm-button{
+    height: 4rem;
+    width: 4rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem; 
+    border-radius: 2rem;
+    transition: all 0.2s;
+}
+
+.confirm-button.red{
+    background-color:#f44336;
+}
+
+.confirm-button.red:hover{
+    background-color:#ff8a80;
+}
+
+.confirm-button.green{
+    background-color: #00c853;
+}
+
+.confirm-button.green:hover{
+    background-color: #00e676;
+}
+
+.confirm-button-icon{
+    height: 75%;
+}
+
+.center-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .top-bar{
     margin-right: 15px;
     margin-left: 0;
@@ -100,11 +164,50 @@ html, body{
     object-position: center;
 }
 
+.order-table-container{
+    height: calc(100% - 7.5rem) !important;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.order-table-total{
+    height: 2rem;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.order-table-total-text{
+    padding-top: .4rem;
+    padding-right: 10px;
+    font-size: 1.25rem;
+    width: 100%;
+    text-align: right;
+}
+
+.order-item-infobox.orders{
+    height: 4.5rem;
+    padding-left: 1.5rem;
+}
+
+.tablecontain{
+    background-color: #999;
+    border-radius: 1rem;
+}
+
 .order-item-infobox{
     height: 10rem;
-    width: 100%;
+    width: 75%;
     font-family: 'Product Sans';
     padding: 0.75rem;
+}
+
+.order-item-confirm{
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 3rem;
+    line-height: 3rem;
 }
 
 .order-item-name{
@@ -155,7 +258,13 @@ html, body{
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: all 0.2s
 }
+
+.add-button-order:hover{
+    background-color: #00e676;
+}
+
 
 .add-button-order.red{
     background-color:#f44336;
@@ -168,10 +277,6 @@ html, body{
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.order-increment-btn.green{
-    background-color:#69f0ae;
 }
 
 .qty-label.spacer{
@@ -195,10 +300,6 @@ html, body{
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.order-increment-btn.red{
-    background-color:#ff5252;
 }
 
 .add-button-icon-order{
@@ -256,6 +357,15 @@ html, body{
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.add-button:hover{
+    background-color:#00e676;
+}
+
+.add-button-order.red:hover{
+    background-color:#ff8a80;
 }
 
 .add-button-icon{
@@ -307,6 +417,7 @@ html, body{
 }
 
 .menu-category{
+    transform: translateX(1rem);
     font-family: 'Product Sans';
     position: relative;
     height: 6rem;
@@ -314,7 +425,7 @@ html, body{
     margin: 0 0 0 0;
     border-radius: 1rem 0 0 1rem;
     margin-bottom: 0.5rem;
-    transition: all 2s;
+    transition: all 0.3s;
     width: 100%;
     z-index: 0;
     display: flex;
@@ -322,6 +433,22 @@ html, body{
     justify-content: center;
     text-align: center;
     cursor: pointer;
+    background: rgba(255,255,255,.7)
+}
+
+.menu-category.selected{
+    transform: translateX(0rem);
+    background: #fff;
+}
+
+.menu-category.selected:hover{
+    transform: translateX(0rem);
+    background: #fff;
+}
+
+.menu-category:hover{
+    transform: translateX(0.5rem);
+    background: #fff;
 }
 
 .category-text{
@@ -373,6 +500,10 @@ html, body{
 
 .fillHeight{
     height: 100%;
+}
+
+.fillWidth{
+    width: 100%;
 }
 
 .autoMargin{

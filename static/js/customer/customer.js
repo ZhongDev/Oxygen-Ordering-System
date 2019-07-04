@@ -9,6 +9,8 @@ var intersectObj = {
 var currentArr = [];
 var currentCategory = '';
 var currentqty = 1;
+var currentindex = 1;
+var firstcategory, lastcategory;
 
 // import jquery libraries
 window.$ = window.jQuery = require('jquery');
@@ -18,35 +20,78 @@ $(window).on('load', function() {
     //setup
     categorietabs = $("#category-selector").children();
     categorietabs[0].classList.add('selected');
-    categorietabs[0].setAttribute("id", "firstcategory")
-    categorietabs[categorietabs.length-1].setAttribute("id", "lastcategory")
+    firstcategory = categorietabs[0].attributes.id.value;
+    lastcategory = categorietabs[categorietabs.length-1].attributes.id.value;
     categorietabs[categorietabs.length-1].classList.add('noBottomMargin');
     updateScrollShadow()
     setupWebSockets()
 })
 
 function orderPopup(itemIndex){
+    currentindex = itemIndex
     generateOrderPopup(itemIndex);
     showOverlay();
 }
 
 function showOverlay(){
+    $('#overlay').css("display","block");
     $('#overlay').addClass('show')
+    $('#overlay-content').css("display","block");
     $('#overlay-content').addClass('show')
+    $('#overlay').fadeTo(400, 1)
+    $('#overlay-content').fadeTo(200, 1)
+}
+
+function showOrderOverlay(){
+    $('#overlay').css("display","block");
+    $('#overlay').addClass('show')
+    $('#overlay-content-orders').css("display","block");
+    $('#overlay-content-orders').addClass('show')
+    $('#overlay').fadeTo(400, 1)
+    $('#overlay-content-orders').fadeTo(200, 1)
 }
 
 function hideOverlay(){
-    $('#overlay').removeClass('show')
-    $('#overlay-content').removeClass('show')
+    $('#overlay').fadeTo(400, 0, ()=>{
+        setTimeout(function(){
+            $('#overlay').css("display","none");
+            $('#overlay').removeClass('show')
+        },10)
+    })
+    $('#overlay-content').fadeTo(200, 0, ()=>{
+        setTimeout(function(){
+            $('#overlay-content').css("display","none");
+            $('#overlay-content').removeClass('show')
+        },10)
+    })
+    $('#overlay-content-orders').fadeTo(200, 0, ()=>{
+        setTimeout(function(){
+            $('#overlay-content-orders').css("display","none");
+            $('#overlay-content-orders').removeClass('show')
+        },10)
+    })
 }
 
 function requestMenu(category){
+    $('.menu-category.selected')[0].classList.remove('selected')
+    setTimeout(function(){
+        console.log('#' + category.split(" ").join("-"))
+        $('#' + category.split(" ").join("-")).addClass('selected')
+    },100)
     $('#menu-title-bar-text').text(category)
     currentCategory = category;
     ws.send(JSON.stringify({
         "request": "get",
         "item": "menuitems",
         "args": [category]
+    }))
+}
+
+function getOrders(){
+    ws.send(JSON.stringify({
+        "request": "get",
+        "item": "bill",
+        "args": [tableid]
     }))
 }
 
@@ -64,6 +109,67 @@ function orderDecrement(){
         currentqty = 1;
     }
     $('#qty-txt').text(currentqty)
+}
+
+function confirmQty(){
+    ws.send(
+        JSON.stringify({
+            "request": "order",
+            "tableid": tableid,
+            "category": currentCategory,
+            "index": currentindex,
+            "qty": currentqty
+        })
+    )
+}
+
+function orderConfirmation(){
+    $("#item-infobox").removeClass("col-9")
+    $("#item-infobox").fadeTo(300, 0)
+    $("#item-infobox").animate({
+        width: "0px",
+        padding: "0px"
+    }, 400, ()=>{$("#item-infobox").remove()})
+    $("#order-count-wrapper").animate({
+        height: "100%"
+    }, 500)
+    $("#order-increment-btn").removeClass("col-4")
+    $("#order-increment-btn").fadeTo(300, 0)
+    $("#order-increment-btn").animate({
+        width: "0px"
+    }, 500)
+    $("#order-decrement-btn").removeClass("col-4")
+    $("#order-decrement-btn").fadeTo(300, 0)
+    $("#order-decrement-btn").animate({
+        width: "0px"
+    }, 500)
+    $('#qty-txt').animate({
+        height: "4rem",
+        "line-height": "4rem",
+        "font-size": "4rem"
+    }, 600, ()=>{
+        generateConfirmation()
+    })
+}
+
+function orderAcknowleadged(){
+    $('#overlay').fadeTo(600, 0, ()=>{
+        setTimeout(function(){
+            $('#overlay').css("display","none");
+            $('#overlay').removeClass('show')
+        },10)
+    })
+    $('#overlay-content').animate({
+        top: "-100vh"
+    }, 500, ()=>{
+        setTimeout(function(){
+            $('#overlay-content').css("display","none");
+            $('#overlay-content').removeClass('show')
+            $('#overlay-content').animate({
+                top: "0vh"
+            }, 200)
+        },10)
+    })
 }
 
 function renderMenu(categoryArr){
@@ -150,6 +256,12 @@ function setupWebSockets(){
             case "menuitems":
                 renderMenu(receivedObj.value)
             break
+            case "order":
+                orderAcknowleadged()
+            break
+            case "bill":
+                showBill(receivedObj.value);
+            break
             default:
                 console.log(receivedObj)
         }
@@ -159,8 +271,8 @@ function setupWebSockets(){
 // call when scrolled to update top and bottom shadows of #category-selector
 function updateScrollShadow(){
     //get relavant coordinate values
-    var firstelementtop = $("#firstcategory").position().top;
-    var lastelementbottom = $("#lastcategory").position().top + $("#lastcategory").outerHeight();
+    var firstelementtop = $("#" + firstcategory).position().top;
+    var lastelementbottom = $("#" + lastcategory).position().top + $("#" + lastcategory).outerHeight();
     var topshadowelementbottom = $("#top-shadow-ele").position().top + $("#top-shadow-ele").outerHeight();
     var bottomshadowelementtop = $("#bottom-shadow-ele").position().top;
     
@@ -234,6 +346,19 @@ function updateScrollShadow(){
     intersectObj.bottomintersect = bottomintersect
 }
 
+function showBill(billArr){
+    console.log(billArr)
+    var ordertext = '<tr>\n<th class="tg-0lax">Order #</th>\n<th class="tg-0lax">Item</th>\n<th class="tg-0lax">Cost/ea</th>\n<th class="tg-0lax">Quantity</th>\n<th class="tg-0lax">Total</th>\n</tr>'
+    var totalcost = 0;
+    billArr.forEach(function (item, index) {
+        totalcost += item.item.Price*item.qty
+        ordertext += '\n<tr>\n<td class="tg-baqh">' + (index + 1) + '</td>\n<td class="tg-baqh">' + item.item.Name + '</td>\n<td class="tg-baqh">$' + (item.item.Price/100).toFixed(2) + '</td>\n<td class="tg-baqh">' + item.qty + '</td>\n<td class="tg-baqh">$' + (item.item.Price*item.qty/100).toFixed(2) + '</td>\n</tr>';
+    })
+    $("#order-table").html(ordertext)
+    $("#order-table-total-text").text('Total: $' + (totalcost/100).toFixed(2))
+    showOrderOverlay()
+}
+
 function generateOrderPopup(itemIndex){
     $('#overlay-content').html('')
     let item = currentArr[itemIndex]
@@ -249,9 +374,11 @@ function generateOrderPopup(itemIndex){
 
     var bottomrow = document.createElement('div')
     bottomrow.setAttribute("class", "row order-item-bottom-row")
+    bottomrow.setAttribute("id", "order-item-bottom-row")
 
     var infobox = document.createElement('div')
     infobox.setAttribute("class", "order-item-infobox col-9")
+    infobox.setAttribute("id", "item-infobox")
 
     var titlerow = document.createElement('div')
     titlerow.setAttribute("class", "row noSideMargin")
@@ -276,9 +403,11 @@ function generateOrderPopup(itemIndex){
 
     var ordercountwrapper = document.createElement('div')
     ordercountwrapper.setAttribute("class", "order-count-wrapper col-12 noSidePadding")
+    ordercountwrapper.setAttribute("id", "order-count-wrapper")
 
     var orderdecrementbtn = document.createElement('div')
     orderdecrementbtn.setAttribute("class", "order-increment-btn col-4 noSidePadding fillHeight")
+    orderdecrementbtn.setAttribute("id", "order-decrement-btn")
     orderdecrementbtn.setAttribute("onclick", "orderDecrement()")
 
     var orderdecrementbtnicon = document.createElement('img')
@@ -287,6 +416,7 @@ function generateOrderPopup(itemIndex){
 
     var orderincrementbtn = document.createElement('div')
     orderincrementbtn.setAttribute("class", "order-increment-btn col-4 noSidePadding fillHeight")
+    orderincrementbtn.setAttribute("id", "order-increment-btn")
     orderincrementbtn.setAttribute("onclick", "orderIncrement()")
 
     var orderincrementbtnicon = document.createElement('img')
@@ -375,4 +505,49 @@ function generateOrderPopup(itemIndex){
     itemwrapper.append(bottomrow)
 
     $('#overlay-content').append(itemwrapper)
+}
+
+function generateConfirmation(){
+    //recreate every node
+    var confirmationinfobox = document.createElement('div')
+    confirmationinfobox.setAttribute("class", "order-item-infobox col-8 noLeftPadding")
+    confirmationinfobox.setAttribute("id", "confirmation-infobox")
+
+    var toprow = document.createElement('div')
+    toprow.setAttribute("class", "row noSideMargin center-content")
+    var topspan = document.createElement('span')
+    topspan.setAttribute("class", "order-item-confirm")
+    var toptext = document.createTextNode('Please confirm quantity.');
+
+    var bottomrow = document.createElement('div')
+    bottomrow.setAttribute("class", "row noSideMargin center-content confirm-container")
+
+    var cancelbtn = document.createElement('div')
+    cancelbtn.setAttribute("class", "confirm-button red center-content dropShadow")
+    cancelbtn.setAttribute("onclick", "hideOverlay()")
+    var cancelicon = document.createElement('img')
+    cancelicon.setAttribute("class", "confirm-button-icon")
+    cancelicon.setAttribute("src", "/static/image/close.svg")
+
+    var confirmbtn = document.createElement('div')
+    confirmbtn.setAttribute("class", "confirm-button green center-content dropShadow")
+    confirmbtn.setAttribute("onclick", "confirmQty()")
+    var confirmicon = document.createElement('img')
+    confirmicon.setAttribute("class", "confirm-button-icon")
+    confirmicon.setAttribute("src", "/static/image/check.svg")
+
+    //append each node in heirachial order
+    topspan.append(toptext)
+    toprow.append(topspan)
+
+    confirmbtn.append(confirmicon)
+    cancelbtn.append(cancelicon)
+    bottomrow.append(cancelbtn)
+    bottomrow.append(confirmbtn)
+
+    confirmationinfobox.append(toprow)
+    confirmationinfobox.append(bottomrow)
+
+    $("#order-item-bottom-row").append(confirmationinfobox)
+    $("#confirmation-infobox").fadeTo(300, 1)
 }

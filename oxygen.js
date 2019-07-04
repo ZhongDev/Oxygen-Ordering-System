@@ -2,13 +2,13 @@
 require('dotenv').config()
 var port = process.env.PORT || 80
 
-// require express.js
+// import express.js and dependencies
 var path = require('path')
 var express = require('express')
 var app = express()
 var expressWs = require('express-ws')(app)
 
-// require electron functions
+// import electron functions
 const {
     app: electronapp,
     BrowserWindow
@@ -24,11 +24,11 @@ app.set('view engine', 'ejs')
 app.get('/', handler.customer.get)
 app.ws('/', handler.customer.ws)
 
-// respond to GET and Websockets requests on root
+// respond to GET and Websockets requests on /Kitchen (currently unused)
 app.get('/kitchen/', handler.kitchen.get)
 app.ws('/kitchen/', handler.kitchen.ws)
 
-// POS GUI server
+// POS GUI server (currently unused)
 app.get('/pos/', handler.pos.get)
 app.ws('/pos/', handler.pos.ws)
 
@@ -40,11 +40,8 @@ app.use('/menu-static/', express.static(path.join(__dirname, 'menu-static')))
 app.listen(port, () => {
     console.log(`OxygenOS is listening on port ${port}`)
     electronapp.on('ready', () => {
-        createWindow('http://127.0.0.1/pos/', 800, 600)
-            .then(()=>{
-                console.log(`Electron window attempting connection to localhost on ${port}`)
-                createWindow('http://127.0.0.1/', 1024, 768) 
-            })
+        console.log(`Electron window attempting connection to localhost on ${port}`)
+        createWindow('http://127.0.0.1/', 1024, 768) 
     })
 })
 
@@ -59,7 +56,19 @@ function createWindow(url, width, height) {
 
         // and load the index.html of the app.
         win.loadURL(url)
-        setTimeout(function(){win.webContents.openDevTools()}, 1000)
+        
+        // uncomment line below to enable automatic opening of DevTools (f12 menu)
+        // setTimeout(function(){win.webContents.openDevTools()}, 1000)
+
         resolve()
     })
 }
+
+// end process when all windows are closed
+electronapp.on('window-all-closed', function() {
+    // On OS X it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    if (process.platform !== 'darwin') {
+        electronapp.quit()
+    }
+})

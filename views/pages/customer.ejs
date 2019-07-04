@@ -3,13 +3,55 @@
 
 <head>
     <% include ../partials/headmain.ejs%>
-    <script>
-        var port = <%= port %>
-    </script>
     <link rel="stylesheet" href="/static/css/customer.css">
 </head>
 
 <body>
+    <div id="overlay-content-orders">
+        <div class="order-menu dropShadow">
+            <div class="row order-item-bottom-row">
+                <div class="order-item-infobox orders col-11">
+                    <div class="row noSideMargin">
+                        <span class="order-item-name">Orders</span>
+                    </div>
+                </div>
+                <div class="col-1 noSideMargin fillHeight">
+                    <div style="float: right; height: 3rem; width: 3rem;" class="add-button-order red noSidePadding" onclick="hideOverlay()">
+                        <img class="add-button-icon" src="/static/image/close.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="row order-table-container noSideMargin">
+                <div class="tablecontain fillHeight fillWidth forceScroll customscroll">
+                    <style type="text/css">
+                    .tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9;width:100%;}
+                    .tg td{font-family:'Product Sans', sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+                    .tg th{font-family:'Product Sans', sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
+                    .tg .tg-0lax{text-align:left;vertical-align:top}
+                    </style>
+                    <table id="order-table" class="tg">
+                        <tr>
+                        <th class="tg-0lax">Order #</th>
+                        <th class="tg-0lax">Item</th>
+                        <th class="tg-0lax">Cost/ea</th>
+                        <th class="tg-0lax">Quantity</th>
+                        <th class="tg-0lax">Total</th>
+                        </tr>
+                        <tr>
+                        <td class="tg-0lax"></td>
+                        <td class="tg-0lax"></td>
+                        <td class="tg-0lax"></td>
+                        <td class="tg-0lax"></td>
+                        <td class="tg-0lax"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row order-table-total noSideMargin">
+                <span class="order-table-total-text" id="order-table-total-text">Total:</span>
+            </div>
+        </div>
+    </div>
     <div id="overlay-content"></div>
     <div id="overlay" onclick="hideOverlay()"></div>
     <div class="container-fluid">
@@ -19,11 +61,12 @@
                     <img src="/static/image/logo.png" alt="Taisho" style="height: 10vh;">
                 </a></div>
             <div class="col-9 fillHeight noSidePadding">
-                <!--  -->
-                <!-- Add Call Buttons Here -->
-                <!--  -->
                 <div class="row fillHeight top-bar">
-                    <div class="col-9 fillHeight"></div>
+                    <div class="col-9 fillHeight">
+                        <div class="bill-btn center-content" onclick="getOrders()">
+                            <span class="bill-text">Orders</span>
+                        </div>
+                    </div>
                     <div class="table-text-container col-3 fillHeight">
                         <h2 class="table-text"><span class="table-text-inner">Table:</span><span id="table-id"></span>
                         </h2>
@@ -38,7 +81,7 @@
 
                     <% var categories = MenuObject.categories;
                     Object.keys(categories).forEach((category)=>{ %>
-                    <div class="row menu-category" onclick='requestMenu("<%= category %>")' value='<%= category %>'>
+                    <div class="row menu-category" onclick='requestMenu("<%= category %>")' id="<%= category.split(' ').join('-') %>" value='<%= category %>'>
                         <h2 class="category-text"><%= category %></h2>
                     </div>
                     <% }) %>
