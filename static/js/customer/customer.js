@@ -8,6 +8,7 @@ var intersectObj = {
 }
 var currentArr = [];
 var currentCategory = '';
+var currentqty = 1;
 
 // import jquery libraries
 window.$ = window.jQuery = require('jquery');
@@ -24,6 +25,21 @@ $(window).on('load', function() {
     setupWebSockets()
 })
 
+function orderPopup(itemIndex){
+    generateOrderPopup(itemIndex);
+    showOverlay();
+}
+
+function showOverlay(){
+    $('#overlay').addClass('show')
+    $('#overlay-content').addClass('show')
+}
+
+function hideOverlay(){
+    $('#overlay').removeClass('show')
+    $('#overlay-content').removeClass('show')
+}
+
 function requestMenu(category){
     $('#menu-title-bar-text').text(category)
     currentCategory = category;
@@ -32,6 +48,19 @@ function requestMenu(category){
         "item": "menuitems",
         "args": [category]
     }))
+}
+
+function orderIncrement(){
+    currentqty += 1;
+    $('#qty-txt').text(currentqty)
+}
+
+function orderDecrement(){
+    currentqty -= 1;
+    if(currentqty <= 0){
+        currentqty = 1;
+    }
+    $('#qty-txt').text(currentqty)
 }
 
 function renderMenu(categoryArr){
@@ -200,4 +229,147 @@ function updateScrollShadow(){
     //save current state
     intersectObj.topintersect = topintersect
     intersectObj.bottomintersect = bottomintersect
+}
+
+function generateOrderPopup(itemIndex){
+    $('#overlay-content').html('')
+    let item = currentArr[itemIndex]
+    currentqty = 1;
+
+    //recreate every node
+    var itemwrapper = document.createElement('div')
+    itemwrapper.setAttribute("class", "order-menu dropShadow")
+
+    var image = document.createElement('img')
+    image.setAttribute("class","order-item-img")
+    image.setAttribute("src","/menu-static/" + item.Img)
+
+    var bottomrow = document.createElement('div')
+    bottomrow.setAttribute("class", "row order-item-bottom-row")
+
+    var infobox = document.createElement('div')
+    infobox.setAttribute("class", "order-item-infobox col-9")
+
+    var titlerow = document.createElement('div')
+    titlerow.setAttribute("class", "row noSideMargin")
+    var title = document.createElement('span')
+    title.setAttribute("class", "order-item-name")
+    var titletext = document.createTextNode(item.Name);
+
+    var pricerow = document.createElement('div')
+    pricerow.setAttribute("class", "row noSideMargin")
+    var price = document.createElement('span')
+    price.setAttribute("class", "order-item-price")
+    var pricetext = document.createTextNode("$" + (item.Price/100).toFixed(2) + "/eax");
+
+    var descrow = document.createElement('div')
+    descrow.setAttribute("class", "row noSideMargin")
+    var desc = document.createElement('span')
+    desc.setAttribute("class", "order-item-description")
+    var desctext = document.createTextNode(item.Description);
+
+    var orderside = document.createElement('div')
+    orderside.setAttribute("class", "col-3 noSidePadding order-side")
+
+    var ordercountwrapper = document.createElement('div')
+    ordercountwrapper.setAttribute("class", "order-count-wrapper col-12 noSidePadding")
+
+    var orderdecrementbtn = document.createElement('div')
+    orderdecrementbtn.setAttribute("class", "order-increment-btn col-4 noSidePadding fillHeight")
+    orderdecrementbtn.setAttribute("onclick", "orderDecrement()")
+
+    var orderdecrementbtnicon = document.createElement('img')
+    orderdecrementbtnicon.setAttribute("class", "add-button-icon-order")
+    orderdecrementbtnicon.setAttribute("src", "/static/image/remove-icon.svg")
+
+    var orderincrementbtn = document.createElement('div')
+    orderincrementbtn.setAttribute("class", "order-increment-btn col-4 noSidePadding fillHeight")
+    orderincrementbtn.setAttribute("onclick", "orderIncrement()")
+
+    var orderincrementbtnicon = document.createElement('img')
+    orderincrementbtnicon.setAttribute("class", "add-button-icon-order")
+    orderincrementbtnicon.setAttribute("src", "/static/image/add-icon.svg")
+
+    var orderquantity = document.createElement('div')
+    orderquantity.setAttribute("class", "col-4 noSidePadding fillHeight")
+    orderquantity.setAttribute("id", "order-quantity")
+
+    var spacer1 = document.createElement('div')
+    spacer1.setAttribute("class", "row noSidePadding qty-label spacer")
+    var spacer2 = document.createElement('div')
+    spacer2.setAttribute("class", "row noSidePadding qty-label spacer")
+    var spacer3 = document.createElement('div')
+    spacer3.setAttribute("class", "row noSidePadding qty-label spacer")
+
+    var qtylabel = document.createElement('div')
+    qtylabel.setAttribute("class", "row noSidePadding qty-label")
+    var qtylabeltxt = document.createTextNode('Quantity:');
+
+    var qty = document.createElement('div')
+    qty.setAttribute("class", "row noSidePadding noSideMargin qty")
+    var qtyspan = document.createElement('span')
+    qtyspan.setAttribute("id", "qty-txt")
+    var qtyspantxt = document.createTextNode('1');
+
+    var confirmwrap = document.createElement('div')
+    confirmwrap.setAttribute("class", "row noSideMargin fillHeight")
+
+    var addbtnorder = document.createElement('div')
+    addbtnorder.setAttribute("class", "add-button-order col-8 noSidePadding")
+    addbtnorder.setAttribute("onclick", "orderConfirmation()")
+
+    var addbtnordericon = document.createElement('img')
+    addbtnordericon.setAttribute("class", "add-button-icon")
+    addbtnordericon.setAttribute("src", "/static/image/add-to-order.svg")
+
+    var cancelorder = document.createElement('div')
+    cancelorder.setAttribute("class", "add-button-order red col-4 noSidePadding")
+    cancelorder.setAttribute("onclick", "hideOverlay()")
+
+    var cancelordericon = document.createElement('img')
+    cancelordericon.setAttribute("class", "add-button-icon")
+    cancelordericon.setAttribute("src", "/static/image/close.svg")
+    
+
+    //append each node in heirachial order
+    qtyspan.append(qtyspantxt)
+
+    qtylabel.append(qtylabeltxt)
+    qty.append(qtyspan)
+
+    price.append(pricetext)
+    pricerow.append(price)
+    title.append(titletext)
+    titlerow.append(title)
+    desc.append(desctext)
+    descrow.append(desc)
+    orderdecrementbtn.append(orderdecrementbtnicon)
+    orderincrementbtn.append(orderincrementbtnicon)
+    orderquantity.append(spacer1)
+    orderquantity.append(qtylabel)
+    orderquantity.append(qty)
+    orderquantity.append(spacer2)
+    orderquantity.append(spacer3)
+    addbtnorder.append(addbtnordericon)
+    cancelorder.append(cancelordericon)
+
+    infobox.append(titlerow)
+    infobox.append(pricerow)
+    infobox.append(descrow)
+    ordercountwrapper.append(orderdecrementbtn)
+    ordercountwrapper.append(orderquantity)
+    ordercountwrapper.append(orderincrementbtn)
+    confirmwrap.append(cancelorder)
+    confirmwrap.append(addbtnorder)
+
+    orderside.append(ordercountwrapper)
+    orderside.append(confirmwrap)
+
+    bottomrow.append(infobox)
+    bottomrow.append(orderside)
+
+    itemwrapper.append(image)
+    itemwrapper.append(bottomrow)
+
+    $('#overlay-content').append(itemwrapper)
 }

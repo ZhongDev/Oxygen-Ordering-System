@@ -4,6 +4,33 @@ html, body{
     overflow: hidden;
 }
 
+#overlay-content{
+    display: none;
+    position: absolute;
+    margin: 5rem;
+    width: calc(100vw - 10rem);
+    height: calc(100vh - 10rem);
+    z-index: 50;
+}
+
+#overlay-content.show{
+    display: block;
+}
+
+#overlay{
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100vw;
+    z-index: 40;
+}
+
+#overlay.show{
+    display: block;
+}
+
 #menu-title-bar{
     display: flex;
     align-items: center;
@@ -27,6 +54,13 @@ html, body{
     margin-left: .5rem;
 }
 
+#qty-txt{
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
 .top-bar{
     margin-right: 15px;
     margin-left: 0;
@@ -47,6 +81,131 @@ html, body{
     font-family: 'Product Sans';
     margin-top: calc(2.5vh + 0.375rem);
     margin-bottom: calc(2.5vh + 0.2rem);
+}
+
+.order-menu{
+    display: inline-block;
+    border-radius: 1rem;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.order-item-img{
+    width: 100%;
+    height: calc(100% - 10rem);
+    object-fit: cover;
+    object-position: center;
+}
+
+.order-item-infobox{
+    height: 10rem;
+    width: 100%;
+    font-family: 'Product Sans';
+    padding: 0.75rem;
+}
+
+.order-item-name{
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+.order-item-description{
+    margin-top: 0.75rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.order-item-price{
+    margin-top: .25rem;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.order-item-bottom-row{
+    margin-left: -1px;
+    margin-right: -1px;
+}
+
+.order-item-block{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.order-side{
+    height: 10rem;
+}
+
+.order-count-wrapper{
+    height: 50%;
+    background-color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.add-button-order{
+    height: 50%;
+    background-color:#00c853;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.add-button-order.red{
+    background-color:#f44336;
+}
+
+.order-increment-btn{
+    height: 50%;
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.order-increment-btn.green{
+    background-color:#69f0ae;
+}
+
+.qty-label.spacer{
+    height: 10%
+}
+
+.qty-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 20%;
+    font-family: 'Product Sans';
+    font-size: 100%;
+    line-height: 100%;
+}
+
+.qty{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.order-increment-btn.red{
+    background-color:#ff5252;
+}
+
+.add-button-icon-order{
+    height: 75%;
+    width: 75%;
+    object-fit: contain;
+    object-position: center;
 }
 
 .menu-item{
@@ -80,6 +239,7 @@ html, body{
 }
 
 .menu-item-price{
+    margin-top: .25rem;
     font-size: 1rem;
     line-height: 1rem;
 }

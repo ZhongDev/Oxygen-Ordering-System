@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <% include ../partials/headmain.ejs%>
-    <script>var port = <%= port %></script>
+    <script>
+        var port = <%= port %>
+    </script>
     <link rel="stylesheet" href="/static/css/customer.css">
 </head>
+
 <body>
+    <div id="overlay-content"></div>
+    <div id="overlay" onclick="hideOverlay()"></div>
     <div class="container-fluid">
         <nav class="navbar noSidePadding">
             <div class="col-3 noSidePadding navbar-brand-container">
@@ -19,7 +25,8 @@
                 <div class="row fillHeight top-bar">
                     <div class="col-9 fillHeight"></div>
                     <div class="table-text-container col-3 fillHeight">
-                        <h2 class="table-text"><span class="table-text-inner">Table:</span><span id="table-id"></span></h2>    
+                        <h2 class="table-text"><span class="table-text-inner">Table:</span><span id="table-id"></span>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -31,9 +38,9 @@
 
                     <% var categories = MenuObject.categories;
                     Object.keys(categories).forEach((category)=>{ %>
-                        <div class="row menu-category" onclick='requestMenu("<%= category %>")' value='<%= category %>'>
-                            <h2 class="category-text"><%= category %></h2>
-                        </div>
+                    <div class="row menu-category" onclick='requestMenu("<%= category %>")' value='<%= category %>'>
+                        <h2 class="category-text"><%= category %></h2>
+                    </div>
                     <% }) %>
 
                 </div>
@@ -46,7 +53,7 @@
                     </div>
                     <div class="row noSideMargin" id="menu-items-container">
                         <div class="menu-item-block customscroll" id="menu-item-block">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -55,4 +62,5 @@
     </div>
     <script src="/static/js/customer/customer.js"></script>
 </body>
+
 </html>
