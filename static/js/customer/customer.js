@@ -37,6 +37,7 @@ function orderPopup(itemIndex){
 // ingest function for loading new items from a different catergory
 function requestMenu(category){
     $('.menu-category.selected')[0].classList.remove('selected')
+    resetMainScroll()
     setTimeout(function(){
         console.log('#' + category.split(" ").join("-"))
         $('#' + category.split(" ").join("-")).addClass('selected')
@@ -224,4 +225,9 @@ function checkintersection(){
         let offset = y - (bottomshadowrect.top - selectedrect.bottom);
         $('#category-selector').animate({ scrollTop: offset }, 400);
     }
+}
+
+// resets the scroll on the main window when updated
+function resetMainScroll() {
+    $('#menu-item-block').scrollTop(0);
 }
