@@ -1,6 +1,6 @@
 // import MenuObject
 const fs = require('fs');
-let rawdata = fs.readFileSync('./menupack/oxygenMenu.json');  
+let rawdata = fs.readFileSync('./oxygenMenu.json');  
 let MenuObject = JSON.parse(rawdata);
 
 //get port

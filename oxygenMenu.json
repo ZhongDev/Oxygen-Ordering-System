@@ -52,7 +52,7 @@
             "Img": "tunatataki.jpg"
         }],
         "Tempura": [{
-            "Name": "Soft Shell Crab Tempura",
+            "Name": "Soft Crab Tempura",
             "Description": "Two pieces. Deep fried soft shell crab.",
             "Price": 880,
             "Img": "softshelltemp.jpg"
@@ -78,12 +78,12 @@
             "Price": 1980,
             "Img": "katsuroll.jpg"
         },{
-            "Name": "Salmon and Avocado Roll",
+            "Name": "Salmon Avo Roll",
             "Description": "Fresh salmon and avocado with mayo sauce.",
             "Price": 1980,
             "Img": "samoavoroll.jpg"
         },{
-            "Name": "Cooked Tuna Avocado Roll",
+            "Name": "Tuna Avo Roll",
             "Description": "Cooked tuna with mayo sauce.",
             "Price": 1980,
             "Img": "cookedtunaroll.jpg"
@@ -103,7 +103,7 @@
             "Price": 2380,
             "Img": "dragonroll.jpg"
         },{
-            "Name": "Spicy Fresh Tuna Roll",
+            "Name": "Spicy Tuna Roll",
             "Description": "Fresh tuna, tamago, cucumber, avocado with chef's special spicy sauce.",
             "Price": 2480,
             "Img": "spicytunaroll.jpg"
@@ -149,18 +149,18 @@
             "Price": 1380,
             "Img": "tempuraudon.jpg"
         },{
-            "Name": "Chicken Katsu Udon",
+            "Name": "Katsu Udon",
             "Description": "Breadcrumbed chicken with udon.",
             "Price": 1380,
             "Img": "katsuudon.jpg"
         },{
-            "Name": "Chicken Karaage Udon",
-            "Description": "Breadcrumbled with udon.",
+            "Name": "Karaage Udon",
+            "Description": "Fried chicken with udon.",
             "Price": 1380,
             "Img": "karaageudon.jpg"
         }],
         "Donburi": [{
-            "Name": "Teriyaki Chicken Don",
+            "Name": "Teriyaki Chikan Don",
             "Description": "Stir fried chicken with teriyaki sauce and seasonal vegetable on steam rice.",
             "Price": 1680,
             "Img": "teriyakichickendon.jpg"
@@ -175,55 +175,55 @@
             "Price": 1680,
             "Img": "katsudon.jpeg"
         },{
-            "Name": "Chirashi Don (Assorted Sashimi)",
+            "Name": "Sashimi Don",
             "Description": "Fresh salmon, kingfish, tuna, egg, cucumber with spicy sauce.",
             "Price": 1680,
             "Img": "chirashidon.jpg"
         },{
-            "Name": "Chicken Karaage Don",
+            "Name": "Karaage Don",
             "Description": "Deep fried Japanese style chicken with mayo and teriyaki sauce.",
             "Price": 1680,
             "Img": "karaagedon.jpg"
         },{
             "Name": "Unagi Don",
-            "Description": "grilled eel with teriyaki sauce on steam rice.",
+            "Description": "Grilled eel with teriyaki sauce on steam rice.",
             "Price": 2180,
             "Img": "unagidon.jpg"
         },{
-            "Name": "Wagyu Beef Don (Gyudon)",
+            "Name": "Wagyu Beef Don",
             "Description": "Grilled wagyu beef slices with special sauce on steam rice.",
             "Price": 1780,
             "Img": "gyudon.jpg"
         }],
         "Japanese Curry": [{
-            "Name": "Chicken Katsu Curry",
-            "Description": "Served with rive, salad and vegetable pickles",
+            "Name": "Katsu Curry",
+            "Description": "Breadcrumbed chicken Served with rice, salad and vegetable pickles",
             "Price": 1580,
             "Img": "chickenkatsucurry.jpg"
         },{
-            "Name": "Chicken Karaage Curry",
-            "Description": "Served with rive, salad and vegetable pickles",
+            "Name": "Karaage Curry",
+            "Description": "Fried chicken Served with rice, salad and vegetable pickles",
             "Price": 1580,
             "Img": "chickenkaraagecurry.jpg"
         },{
             "Name": "Panko Prawn Curry",
-            "Description": "Served with rive, salad and vegetable pickles",
+            "Description": "Served with rice, salad and vegetable pickles",
             "Price": 1680,
             "Img": "pankoprawncurry.jpeg"
         }],
         "Dessert": [{
-            "Name": "Green Tea Ice Cream",
-            "Description": "2 Scoop Green Tea Flavoured Ice Cream",
+            "Name": "Matcha Ice Cream",
+            "Description": "2 Scoops Green Tea Flavoured Ice Cream",
             "Price": 580,
             "Img": "greenteaic.jpg"
         },{
-            "Name": "Black Sesame Ice Cream",
-            "Description": "2 Scoop Black Sesame Flavoured Ice Cream",
+            "Name": "Sesame Ice Cream",
+            "Description": "2 Scoops Black Sesame Flavoured Ice Cream",
             "Price": 580,
             "Img": "blacksesameic.jpg"
         },{
             "Name": "Vanilla Ice Cream",
-            "Description": "2 Scoop Vanilla Flavoured Ice Cream",
+            "Description": "2 Scoops Vanilla Flavoured Ice Cream",
             "Price": 580,
             "Img": "vanillaic.jpg"
         },{
@@ -232,18 +232,18 @@
             "Price": 780,
             "Img": "greenteadfk.jpg"
         },{
-            "Name": "Black Sesame Daifuku",
+            "Name": "Sesame Daifuku",
             "Description": "2 Mochi Balls stuffed with Black Sesame filling",
             "Price": 780,
             "Img": "blacksesamedfk.jpg"
         }],
         "Beverages": [{
-            "Name": "Coca-Cola (375ml)",
+            "Name": "Cola (375ml)",
             "Description": "A Can of Coca-Cola",
             "Price": 400,
             "Img": "cola.jpg"
         },{
-            "Name": "Coca-Cola Zero (375ml)",
+            "Name": "Cola Zero (375ml)",
             "Description": "A Can of Coca-Cola No Sugar",
             "Price": 400,
             "Img": "colazero.jpg"
@@ -273,7 +273,7 @@
             "Price": 400,
             "Img": "aj.jpg"
         },{
-            "Name": "Sparkling Water (600ml)",
+            "Name": "Sparkling Water",
             "Description": "Bottle of Carbonated Water",
             "Price": 350,
             "Img": "sparklewater.jpg"

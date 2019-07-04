@@ -1,5 +1,5 @@
 {
-  "name": "oxygen-ordering-system",
+  "name": "OxygenOS",
   "version": "1.0.0",
   "description": "An order management system that aims to have a Responsive, Modern UI that is natural to use.",
   "main": "oxygen.js",
@@ -16,8 +16,12 @@
       "oxygen.js",
       "oxygenHandler.js",
       "node_modules/**/*",
-      "views/**/*",
-      "menupack/**/*"
+      "static/**/*",
+      "menu-static"
+    ],
+    "extraFiles": [
+      "oxygenMenu.json",
+      "views"
     ],
     "directories": {
       "buildResources": "assets"
@@ -45,6 +49,7 @@
   },
   "devDependencies": {
     "builder": "^4.0.0",
+    "electron-builder": "^20.38.5",
     "electron": "^4.1.4"
   }
 }
