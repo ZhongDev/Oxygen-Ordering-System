@@ -1,6 +1,9 @@
 # Oxygen-Ordering-System
 Project Oxygen is an Order management system that aims to have a Responsive, Modern UI that is natural to use.
 
+## :warning: Deprecated :warning:
+This repository is no longer being worked on or supported and has been archived. The code and documentation in this repository are provided as-is, and no further updates or bug fixes will be made. Please use this repository for reference purposes only.
+
 ## NOTE
 This project is meant to be an evaluation package, and is much more relaxed with encryption and security. </br>
 This project is not meant to be used in a production environment. </br>
